@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MovieCard = ({ movie1 }) => {
+const MovieCard = ({ movie1 }) => { // Here { movie1 } is prop with destructuring
     return (
         <div className='movie'>
             <div>
