@@ -24,6 +24,7 @@ const movie1 = {
                             // We are also using "await" here because it takes time to parse the JSON data in the response object.
 
         setMovies(data.Search); // This is a property of the JS object (which we got from the json data). It returns the search result requested using fetch.
+                                // search in the browser: https://www.omdbapi.com/?apikey=7ba95e5b&s=Spiderman
     }
 
     useEffect(() => {
@@ -38,7 +39,9 @@ const movie1 = {
                 <input
                    placeholder = "Search for movies"
                    value = "dummy_value" 
+                   onChange={()=>{}} 
                 />
+                {/* In react <input> requires value parameter, but this is static. So, we used "onChange" to make it dynamic*/}
                 <img 
                     src={SearchIcon}
                     alt="Search"
@@ -46,7 +49,7 @@ const movie1 = {
                 />
             </div>
 
-            {
+            {/* {
                 movies.length >0 ? (
                     <div className='container'>
                         {movies.map
@@ -56,8 +59,23 @@ const movie1 = {
                 ) : (
                     <h2>No Movies Found</h2>
                 )
-            }
+            } */}
 
+            <div className="container">
+                <div className='movie'>
+                    <div>
+                        <p>{movie1.Year}</p>
+                    </div>
+
+                    <div>
+                        <img src={movie1.Poster !== 'N/A' ? movie1.poster : "https://via.placeholder.com/400"} alt = {movie1.Title} />
+                    </div>
+
+                    <div>
+                        <span>{movie1.Type}</span>
+                    </div>
+                </div>
+            </div>
             
         </div>
     );
